@@ -28,6 +28,10 @@ export class HomePage {
      ];
   }
 
+  public updateValueBar(){
+
+  }
+
   public clear(){
 
   }
@@ -36,7 +40,7 @@ export class HomePage {
 
   }
 
-  public evaluateSum(event, calculation){
+  public evaluateSum(event){
 
   }
 }
