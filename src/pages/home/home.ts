@@ -8,8 +8,35 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-    
+  public data: Array<string>;
+  public runningCalculation: string;
+  public calculation: string;
+  public runningSum: string;
+  public sum: string;
+
+  public constructor(public navCtrl: NavController) {
+    this.runningCalculation = '';
+    this.calculation        = '';
+    this.runningSum         = '';
+    this.sum                = '';
+
+    this.data = [
+       this.runningCalculation,
+       this.calculation,
+       this.runningSum,
+       this.sum
+     ];
   }
 
+  public clear(){
+
+  }
+
+  public buildCalculation(event, value) {
+
+  }
+
+  public evaluateSum(event, calculation){
+
+  }
 }
