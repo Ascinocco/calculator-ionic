@@ -45,9 +45,14 @@ export class HomePage {
    * Toggle negative
    */
   public togglePlusMinus (value) {
-    console.log(value)
-    console.log(this.currentInput)
-    this.currentInput = value + '' + this.currentInput;
+    if (this.currentInput.includes("-")){
+      this.currentInput = this.currentInput.replace("-","");
+
+    } else {
+      let tempInput = this.currentInput;
+      this.currentInput = '';
+      this.currentInput = value + '' + tempInput + '';
+    }
   }
 
   /**
@@ -67,17 +72,22 @@ export class HomePage {
     } else {
       this.currentInput = this.currentInput + '' + value + '';
     }
+
     this.operandNotClicked = false;
     this.calculation  = this.calculation + '' + this.currentInput + '';
     this.operatorClicked = false;
+    console.log('operand')
+    console.log(this.calculation)
   }
 
   /**
    * For easy to parse operators
    */
   public getOperator(value) {
-    this.operatorClicked = true;
     this.calculation = this.calculation + '' + value + '';
+    this.operatorClicked = true;
+    console.log('operator')
+    console.log(this.calculation)
   }
 
   /**
