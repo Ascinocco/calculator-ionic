@@ -8,50 +8,65 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  public data: Array<string>;
-  public runningCalculation: string;
-  public calculation: string;
-  public runningSum: string;
-  public sum: string;
+  public data:          Array<string>;
+  public calculation:   string;
+  public currentInput:  string;
+  public tempSum:       string;
+  public sum:           string;
 
   public constructor(public navCtrl: NavController) {
-    this.runningCalculation = '';
+    this.tempSum            = '';
     this.calculation        = '';
-    this.runningSum         = '';
-    this.sum                = '';
-
-    this.data = [
-       this.runningCalculation,
-       this.calculation,
-       this.runningSum,
-       this.sum
-     ];
-  }
-
-  public updateValueBar(){
-
+    this.currentInput       = '';
+    this.sum                = '0';
+    this.data               = [];
   }
 
   public clear(){
+    this.tempSum            = '';
+    this.calculation        = '';
+    this.sum                = '0';
+    this.data               = [];
+  }
+
+  public togglePlusMinus () {
 
   }
 
-  public buildCalculation(event, value) {
+  public addPerecent() {
+    
+  }
+
+  public getOperand() {
 
   }
 
-  public evaluateSum(){
-    this.runningCalculation = 'testRunningCalc';
-    this.calculation = 'testCalc';
-    this.runningSum = 'runningSum';
-    this.sum = 'sum';
+  public getOperator() {
 
-    this.data.push(this.runningCalculation);
-    this.data.push(this.calculation);
-    this.data.push(this.runningSum);
-    this.data.push(this.sum);
+  }
 
-    console.log(this.data);
+  public buildCalculation(value) {
+    this.calculation = this.calculation + '' + value + '';
 
+    try {
+      if (parseFloat(value)){
+        this.sum = value;
+      } else if (value === ".") {
+
+      }
+    } catch (error) {
+      console.error('Cannot parse value');
+    }
+
+  }
+
+  public evaluateCalculation(){
+    try {
+      this.tempSum = eval(this.calculation);
+      this.sum = this.tempSum;
+    } catch (error) {
+      console.error(error);
+      console.log('Need additional operand');
+    }
   }
 }
