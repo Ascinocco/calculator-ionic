@@ -68,6 +68,7 @@ export class HomePage {
    */
   public getOperator(value) {
     this.calculation = this.calculation + '' + value + '';
+    this.currentInput = '' + value + '';
   }
 
   public buildCalculation(value) {
@@ -89,6 +90,7 @@ export class HomePage {
     try {
       this.tempSum = eval(this.calculation);
       this.sum = this.tempSum;
+      this.currentInput = this.sum;
     } catch (error) {
       console.error(error);
       console.log('Need additional operand');
