@@ -45,7 +45,9 @@ export class HomePage {
    * Toggle negative
    */
   public togglePlusMinus (value) {
-
+    console.log(value)
+    console.log(this.currentInput)
+    this.currentInput = value + '' + this.currentInput;
   }
 
   /**
