@@ -40,7 +40,18 @@ export class HomePage {
 
   }
 
-  public evaluateSum(event){
+  public evaluateSum(){
+    this.runningCalculation = 'testRunningCalc';
+    this.calculation = 'testCalc';
+    this.runningSum = 'runningSum';
+    this.sum = 'sum';
+
+    this.data.push(this.runningCalculation);
+    this.data.push(this.calculation);
+    this.data.push(this.runningSum);
+    this.data.push(this.sum);
+
+    console.log(this.data);
 
   }
 }

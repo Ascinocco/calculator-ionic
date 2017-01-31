@@ -13,50 +13,42 @@
 
     <ion-row id="calc-buttonRowOne">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">AC</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">&plusmn;</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">%</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('0')">&divide;</button>
+        <button ion-button color="dark" class="calc-button" (click)="clear()">AC</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('plusMinus')">&plusmn;</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('percent')">%</button>
+        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('/')">&divide;</button>
       </ion-col>
     </ion-row>
 
     <ion-row id="calc-buttonRowTwo">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">7</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">8</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">9</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('0')">x</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('7')">7</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('8')">8</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('9)">9</button>
+        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('*')">x</button>
       </ion-col>
     </ion-row>
 
     <ion-row center id="calc-buttonRowThree">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">4</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">5</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">6</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('0')">-</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('4')">4</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('5')">5</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('6')">6</button>
+        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('-')">-</button>
       </ion-col>
     </ion-row>
 
+
     <ion-row id="calc-buttonRowFour">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">1</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">2</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">3</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('0')">+</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('1')">1</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('2')">2</button>
+        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('3')">3</button>
+        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('+')">+</button>
       </ion-col>
     </ion-row>
 
     <ion-row id="calc-buttonRowFive">
-      <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">1</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">2</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('0')">3</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('0')">+</button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row id="calc-buttonRowSix">
       <ion-col offset-10>
         <button ion-button color="dark" class="calc-buttonZero" (click)="buildCalculation('0')">0</button>
         <button ion-button color="dark" class="calc-button" (click)="buildCalculation('.')">.</button>
