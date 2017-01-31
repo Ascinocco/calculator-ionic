@@ -13,18 +13,20 @@ export class HomePage {
   public currentInput:    string;
   public tempSum:         string;
   public sum:             string;
-  public operandNotClicked:  boolean;
+  public operandNotClicked:      boolean;
+  public operatorClicked: boolean;
 
   /**
    * Build object
    */
   public constructor(public navCtrl: NavController) {
-    this.tempSum               = '';
-    this.calculation           = '';
-    this.currentInput          = '';
-    this.sum                   = '0';
-    this.data                  = [];
-    this.operandNotClicked     = true;
+    this.tempSum                = '';
+    this.calculation            = '';
+    this.currentInput           = '';
+    this.sum                    = '0';
+    this.data                   = [];
+    this.operandNotClicked      = true;
+    this.operatorClicked = false;
   }
 
   /**
@@ -58,42 +60,33 @@ export class HomePage {
    */
   public getOperand(value) {
     // the words hackiest solution to this problem
+    if (this.operatorClicked === true ) {
+      this.currentInput = '' + value + '';
+    } else {
+      this.currentInput = this.currentInput + '' + value + '';
+    }
     this.operandNotClicked = false;
-    this.currentInput = this.currentInput + '' + value + '';
-    this.calculation  = this.currentInput;
+    this.calculation  = this.calculation + '' + this.currentInput + '';
+    this.operatorClicked = false;
   }
 
   /**
    * For easy to parse operators
    */
   public getOperator(value) {
+    this.operatorClicked = true;
     this.calculation = this.calculation + '' + value + '';
-    this.currentInput = '' + value + '';
   }
 
-  public buildCalculation(value) {
-    this.calculation = this.calculation + '' + value + '';
-
+  /**
+   * Calculate the sum
+   */
+  public evaluateCalculation() {
     try {
-      if (parseFloat(value)){
-        this.sum = value;
-      } else if (value === ".") {
-
-      }
-    } catch (error) {
-      console.error('Cannot parse value');
-    }
-
-  }
-
-  public evaluateCalculation(){
-    try {
-      this.tempSum = eval(this.calculation);
-      this.sum = this.tempSum;
+      this.sum = eval(this.calculation);
       this.currentInput = this.sum;
     } catch (error) {
-      console.error(error);
-      console.log('Need additional operand');
+      console.error('Missing operand');
     }
   }
 }
