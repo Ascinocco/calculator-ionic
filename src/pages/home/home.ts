@@ -8,41 +8,66 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  public data:          Array<string>;
-  public calculation:   string;
-  public currentInput:  string;
-  public tempSum:       string;
-  public sum:           string;
+  public data:            Array<string>;
+  public calculation:     string;
+  public currentInput:    string;
+  public tempSum:         string;
+  public sum:             string;
+  public operandNotClicked:  boolean;
 
+  /**
+   * Build object
+   */
   public constructor(public navCtrl: NavController) {
-    this.tempSum            = '';
-    this.calculation        = '';
-    this.currentInput       = '';
-    this.sum                = '0';
-    this.data               = [];
+    this.tempSum               = '';
+    this.calculation           = '';
+    this.currentInput          = '';
+    this.sum                   = '0';
+    this.data                  = [];
+    this.operandNotClicked     = true;
   }
 
+  /**
+   * Clear the calculator
+   */
   public clear(){
-    this.tempSum            = '';
-    this.calculation        = '';
-    this.sum                = '0';
-    this.data               = [];
+    this.operandNotClicked     = true;
+    this.tempSum               = '';
+    this.calculation           = '';
+    this.currentInput          = '';
+    this.sum                   = '0';
+    this.data                  = [];
   }
 
-  public togglePlusMinus () {
-
-  }
-
-  public addPerecent() {
-    
-  }
-
-  public getOperand() {
+  /**
+   * Toggle negative
+   */
+  public togglePlusMinus (value) {
 
   }
 
-  public getOperator() {
+  /**
+   * Add percentage operator
+   */
+  public addPerecent(value) {
 
+  }
+
+  /**
+   * For easy to parse operands
+   */
+  public getOperand(value) {
+    // the words hackiest solution to this problem
+    this.operandNotClicked = false;
+    this.currentInput = this.currentInput + '' + value + '';
+    this.calculation  = this.currentInput;
+  }
+
+  /**
+   * For easy to parse operators
+   */
+  public getOperator(value) {
+    this.calculation = this.calculation + '' + value + '';
   }
 
   public buildCalculation(value) {

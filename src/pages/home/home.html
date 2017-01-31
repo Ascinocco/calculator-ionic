@@ -5,7 +5,8 @@
       <ion-col width-90>
         <ion-item>
           <ion-label>
-            <span id="calc-valueBar" class="text-right">{{ sum }}</span>
+            <span id="calc-valueBarPlaceholder" class="text-right" *ngIf="operandNotClicked">0</span>
+            <span id="calc-valueBar" class="text-right">{{ currentInput }}</span>
           </ion-label>
         </ion-item>
       </ion-col>
@@ -22,36 +23,36 @@
 
     <ion-row id="calc-buttonRowTwo">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="('7')">7</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('8')">8</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('9')">9</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('*')">x</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('7')">7</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('8')">8</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('9')">9</button>
+        <button ion-button color="danger" class="calc-button" (click)="getOperator('*')">x</button>
       </ion-col>
     </ion-row>
 
     <ion-row center id="calc-buttonRowThree">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('4')">4</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('5')">5</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('6')">6</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('-')">-</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('4')">4</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('5')">5</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('6')">6</button>
+        <button ion-button color="danger" class="calc-button" (click)="getOperator('-')">-</button>
       </ion-col>
     </ion-row>
 
 
     <ion-row id="calc-buttonRowFour">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('1')">1</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('2')">2</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('3')">3</button>
-        <button ion-button color="danger" class="calc-button" (click)="buildCalculation('+')">+</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('1')">1</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('2')">2</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('3')">3</button>
+        <button ion-button color="danger" class="calc-button" (click)="getOperator('+')">+</button>
       </ion-col>
     </ion-row>
 
     <ion-row id="calc-buttonRowFive">
       <ion-col offset-10>
-        <button ion-button color="dark" class="calc-buttonZero" (click)="buildCalculation('0')">0</button>
-        <button ion-button color="dark" class="calc-button" (click)="buildCalculation('.')">.</button>
+        <button ion-button color="dark" class="calc-buttonZero" (click)="getOperand('0')">0</button>
+        <button ion-button color="dark" class="calc-button" (click)="getOperand('.')">.</button>
         <button ion-button color="danger" class="calc-button" (click)="evaluateCalculation()">=</button>
       </ion-col>
     </ion-row>
