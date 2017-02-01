@@ -6,6 +6,8 @@
 
  * App Description:   A Calculator that provides basic arithmetic operations
  * as well as percentages and negative floating point and integer values
+ *
+ * Note: I want to re-write the whole thing in react
  */
 
 import { Component } from '@angular/core';
@@ -65,6 +67,10 @@ export class HomePage {
     }
   }
 
+  /**
+   * Convert current input to decimal
+   * TODO: change method name
+   */
   public convertToPercent () {
     try {
       let tempInput = parseFloat(this.currentInput);
@@ -77,6 +83,12 @@ export class HomePage {
     }
   }
 
+  /**
+   * Set's the current input value in browser
+   * also does some validation
+   * a lot of this should be abstracted to validation functions
+   * or even a helper class but this will do for now
+   */
   public setCurrentInput (value) {
     // the words hackiest solution to this problem
     if (this.operatorClicked === true ) {
@@ -108,6 +120,10 @@ export class HomePage {
     console.log(this.currentInput);
   }
 
+  /**
+   * Handles logic for clicking an operator
+   * we do not want to treat operator clicks the same way as operand clicks
+   */
   public operatorClick (value) {
     this.calculation = this.calculation + '' + this.currentInput + '' + value + '';
     this.operatorClicked = true;

@@ -10,6 +10,7 @@
 <ion-content padding>
   <ion-grid>
 
+    <!--Displays the current input of the calculator-->
     <ion-row id="calc-valueBar">
       <ion-col width-90>
         <ion-item>
@@ -21,6 +22,7 @@
       </ion-col>
     </ion-row>
 
+    <!-- First row of buttons -->
     <ion-row id="calc-buttonRowOne">
       <ion-col offset-10>
         <button ion-button color="dark" class="calc-button" (click)="clear()">AC</button>
@@ -30,6 +32,7 @@
       </ion-col>
     </ion-row>
 
+    <!-- Second row of buttons -->
     <ion-row id="calc-buttonRowTwo">
       <ion-col offset-10>
         <button ion-button color="dark" class="calc-button" (click)="setCurrentInput('7')">7</button>
@@ -39,6 +42,7 @@
       </ion-col>
     </ion-row>
 
+    <!-- Third row of buttons -->
     <ion-row center id="calc-buttonRowThree">
       <ion-col offset-10>
         <button ion-button color="dark" class="calc-button" (click)="setCurrentInput('4')">4</button>
@@ -48,7 +52,7 @@
       </ion-col>
     </ion-row>
 
-
+    <!-- Fourth row of buttons -->
     <ion-row id="calc-buttonRowFour">
       <ion-col offset-10>
         <button ion-button color="dark" class="calc-button" (click)="setCurrentInput('1')">1</button>
@@ -58,6 +62,7 @@
       </ion-col>
     </ion-row>
 
+    <!-- Fifth row of buttons -->
     <ion-row id="calc-buttonRowFive">
       <ion-col offset-10>
         <button ion-button color="dark" class="calc-buttonZero" (click)="setCurrentInput('0')">0</button>
