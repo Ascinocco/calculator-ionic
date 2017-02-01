@@ -34,12 +34,13 @@ export class HomePage {
    * TODO: need to clear everything properly
    */
   public clear(){
-    this.operandNotClicked     = true;
-    this.tempSum               = '';
-    this.calculation           = '';
-    this.currentInput          = '';
-    this.sum                   = '0';
-    this.data                  = [];
+    this.tempSum                = '';
+    this.calculation            = '';
+    this.currentInput           = '';
+    this.sum                    = '0';
+    this.data                   = [];
+    this.operandNotClicked      = true;
+    this.operatorClicked        = false;
   }
 
   /**
