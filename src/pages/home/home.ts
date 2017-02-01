@@ -1,3 +1,13 @@
+/**
+ * File:    home.ts
+ * Author:  Anthony Scinocco
+ * Date:    31/01/2017
+ * Description:   Contains logic for my calculator
+
+ * App Description:   A Calculator that provides basic arithmetic operations
+ * as well as percentages and negative floating point and integer values
+ */
+
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
@@ -93,11 +103,16 @@ export class HomePage {
 
     this.operandNotClicked = false;
     this.operatorClicked = false;
+
+    console.log('set curr in')
+    console.log(this.currentInput);
   }
 
   public operatorClick (value) {
     this.calculation = this.calculation + '' + this.currentInput + '' + value + '';
     this.operatorClicked = true;
+    console.log('op click')
+    console.log(this.calculation);
   }
 
   /**
@@ -110,9 +125,12 @@ export class HomePage {
       if (!isNaN(parseFloat(this.sum))) {
         this.currentInput = this.sum;
         this.calculation = '';
+      } else {
+        this.clear();
       }
     } catch (error) {
       console.error('Missing operand');
+      console.log(error);
     }
   }
 }
