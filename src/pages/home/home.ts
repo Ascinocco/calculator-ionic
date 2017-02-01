@@ -147,6 +147,7 @@ export class HomePage {
     } catch (error) {
       console.error('Missing operand');
       console.log(error);
+      alert("Don't use preceding 0's. Clear the calculator with the 'AC'. Sorry...");
     }
   }
 }
