@@ -31,7 +31,6 @@ export class HomePage {
 
   /**
    * Clear the calculator
-   * TODO: need to clear everything properly
    */
   public clear(){
     this.tempSum                = '';
@@ -56,11 +55,16 @@ export class HomePage {
     }
   }
 
-  /**
-   * Add percentage operator
-   */
-  public addPerecent(value) {
-
+  public convertToPercent () {
+    try {
+      let tempInput = parseFloat(this.currentInput);
+      tempInput = tempInput / 100.0;
+      if (!isNaN(tempInput)) {
+        this.currentInput = tempInput.toString();
+      }
+    } catch (error) {
+      console.error('Could not parse value');
+    }
   }
 
   public setCurrentInput (value) {
@@ -71,18 +75,29 @@ export class HomePage {
       this.currentInput = this.currentInput + '' + value + '';
     }
 
+    let decimalCount = 0;
+    // was going to use a regex but I'm lazy and I want to go to bed
+    for (var i = 0; i < this.currentInput.length; i++) {
+      if (this.currentInput[i].includes(".")) {
+        // because the world is again ++ now
+        decimalCount = decimalCount + 1;
+      }
+    }
+
+    if (decimalCount > 1) {
+      alert('Cannot have more than one deciaml in your number');
+      // for some reason calling clear here doesn't put 0 back :/
+      this.clear();
+    }
+
+
     this.operandNotClicked = false;
     this.operatorClicked = false;
-    console.log('curr in from set')
-    console.log(this.currentInput)
   }
 
   public operatorClick (value) {
-    console.log(this.calculation)
     this.calculation = this.calculation + '' + this.currentInput + '' + value + '';
     this.operatorClicked = true;
-    console.log('op calc')
-    console.log(this.calculation)
   }
 
   /**
@@ -92,16 +107,12 @@ export class HomePage {
     this.calculation = this.calculation + '' + this.currentInput + '';
     try {
       this.sum = eval(this.calculation);
-      this.currentInput = this.sum;
-      this.calculation = '';
+      if (!isNaN(parseFloat(this.sum))) {
+        this.currentInput = this.sum;
+        this.calculation = '';
+      }
     } catch (error) {
       console.error('Missing operand');
     }
-
-    console.log('sum')
-    console.log(this.sum)
-    console.log('currentInput')
-    console.log(this.currentInput)
-
   }
 }
