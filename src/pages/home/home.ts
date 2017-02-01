@@ -73,45 +73,16 @@ export class HomePage {
 
     this.operandNotClicked = false;
     this.operatorClicked = false;
-    console.log(this.currentInput);
+    console.log('curr in from set')
+    console.log(this.currentInput)
   }
 
   public operatorClick (value) {
+    console.log(this.calculation)
     this.calculation = this.calculation + '' + this.currentInput + '' + value + '';
     this.operatorClicked = true;
-    console.log('calc??')
-    console.log(this.calculation);
-  }
-
-  /**
-   * For easy to parse operands
-   */
-  public getOperand(value) {
-
-
-
-    // the words hackiest solution to this problem
-    // if (this.operatorClicked === true ) {
-    //   this.currentInput = '' + value + '';
-    // } else {
-    //   this.currentInput = this.currentInput + '' + value + '';
-    // }
-    //
-    // this.operandNotClicked = false;
-    // this.calculation  = this.calculation + '' + this.currentInput + '';
-    // this.operatorClicked = false;
-    // console.log('operand')
-    // console.log(this.calculation)
-  }
-
-  /**
-   * For easy to parse operators
-   */
-  public getOperator(value) {
-    // this.calculation = this.calculation + '' + value + '';
-    // this.operatorClicked = true;
-    // console.log('operator')
-    // console.log(this.calculation)
+    console.log('op calc')
+    console.log(this.calculation)
   }
 
   /**
@@ -122,8 +93,15 @@ export class HomePage {
     try {
       this.sum = eval(this.calculation);
       this.currentInput = this.sum;
+      this.calculation = '';
     } catch (error) {
       console.error('Missing operand');
     }
+
+    console.log('sum')
+    console.log(this.sum)
+    console.log('currentInput')
+    console.log(this.currentInput)
+
   }
 }
